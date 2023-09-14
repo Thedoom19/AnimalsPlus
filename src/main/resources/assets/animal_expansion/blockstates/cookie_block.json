@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "animal_expansion:block/cookie_block"
+    }
+  }
+}

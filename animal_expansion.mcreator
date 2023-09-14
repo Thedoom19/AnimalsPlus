@@ -1,9 +1,27 @@
 {
-  "mod_elements": [],
+  "mod_elements": [
+    {
+      "name": "CookieBlock",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cookie_block",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/animalexpansion/block/CookieBlockBlock.java",
+          "src/main/resources/assets/animal_expansion/blockstates/cookie_block.json",
+          "src/main/resources/assets/animal_expansion/models/item/cookie_block.json",
+          "src/main/resources/assets/animal_expansion/models/block/cookie_block.json"
+        ]
+      }
+    }
+  ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "block.animal_expansion.cookie_block": "Cookie Block"
+    }
   },
   "foldersRoot": {
     "name": "~",

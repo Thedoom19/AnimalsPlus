@@ -29,6 +29,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
+import net.mcreator.animalexpansion.init.AnimalExpansionModItems;
+import net.mcreator.animalexpansion.init.AnimalExpansionModBlocks;
+
 import java.util.function.Supplier;
 import java.util.function.Function;
 import java.util.function.BiConsumer;
@@ -46,6 +49,10 @@ public class AnimalExpansionMod {
 	public AnimalExpansionMod() {
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
+		AnimalExpansionModBlocks.REGISTRY.register(bus);
+
+		AnimalExpansionModItems.REGISTRY.register(bus);
 
 	}
 

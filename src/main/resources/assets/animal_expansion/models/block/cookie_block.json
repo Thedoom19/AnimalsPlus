@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "animal_expansion:block/cookieblock",
+    "up": "animal_expansion:block/cookieblock",
+    "north": "animal_expansion:block/cookieblock",
+    "east": "animal_expansion:block/cookieblock",
+    "south": "animal_expansion:block/cookieblock",
+    "west": "animal_expansion:block/cookieblock",
+    "particle": "animal_expansion:block/cookieblock"
+  },
+  "render_type": "solid"
+}
