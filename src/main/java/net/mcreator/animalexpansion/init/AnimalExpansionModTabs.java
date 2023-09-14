@@ -25,9 +25,5 @@ public class AnimalExpansionModTabs {
 		if (tabData.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
 			tabData.accept(AnimalExpansionModBlocks.COOKIE_BLOCK.get().asItem());
 		}
-
-		if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
-			tabData.accept(AnimalExpansionModItems.MOSSWALKER_SPAWN_EGG.get());
-		}
 	}
 }
