@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "crafting",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "animal_expansion:cookie_block"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cookie",
+    "count": 9
+  }
+}

@@ -40,7 +40,36 @@
           "src/main/java/net/mcreator/animalexpansion/procedures/ApplyBleedingProcedure.java"
         ],
         "dependencies": []
-      }
+      },
+      "path": "~/misc"
+    },
+    {
+      "name": "Cookieblockrecipe",
+      "type": "recipe",
+      "sortid": 2,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cookieblockrecipe",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/animal_expansion/recipes/cookieblockrecipe.json"
+        ]
+      },
+      "path": "~/Blocks"
+    },
+    {
+      "name": "Cookieblockrecipe2",
+      "type": "recipe",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cookieblockrecipe_2",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/animal_expansion/recipes/cookieblockrecipe_2.json"
+        ]
+      },
+      "path": "~/Blocks"
     }
   ],
   "variable_elements": [],
@@ -64,6 +93,10 @@
       },
       {
         "name": "misc",
+        "children": []
+      },
+      {
+        "name": "biomes",
         "children": []
       }
     ]
