@@ -13,7 +13,8 @@
           "src/main/resources/assets/animal_expansion/models/item/cookie_block.json",
           "src/main/resources/assets/animal_expansion/models/block/cookie_block.json"
         ]
-      }
+      },
+      "path": "~/Blocks"
     }
   ],
   "variable_elements": [],
@@ -25,7 +26,12 @@
   },
   "foldersRoot": {
     "name": "~",
-    "children": []
+    "children": [
+      {
+        "name": "Blocks",
+        "children": []
+      }
+    ]
   },
   "workspaceSettings": {
     "modid": "animal_expansion",
