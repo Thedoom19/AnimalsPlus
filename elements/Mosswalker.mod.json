@@ -4,7 +4,7 @@
   "definition": {
     "mobName": "Mosswalker",
     "mobLabel": "",
-    "mobModelName": "Modelmosswalker",
+    "mobModelName": "Modelyesmosswalker",
     "mobModelTexture": "mosswalkertexture.png",
     "mobModelGlowTexture": "",
     "solidBoundingBox": {

@@ -6,11 +6,11 @@ import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 
 import net.mcreator.animalexpansion.entity.MosswalkerEntity;
-import net.mcreator.animalexpansion.client.model.Modelmosswalker;
+import net.mcreator.animalexpansion.client.model.Modelyesmosswalker;
 
-public class MosswalkerRenderer extends MobRenderer<MosswalkerEntity, Modelmosswalker<MosswalkerEntity>> {
+public class MosswalkerRenderer extends MobRenderer<MosswalkerEntity, Modelyesmosswalker<MosswalkerEntity>> {
 	public MosswalkerRenderer(EntityRendererProvider.Context context) {
-		super(context, new Modelmosswalker(context.bakeLayer(Modelmosswalker.LAYER_LOCATION)), 0.5f);
+		super(context, new Modelyesmosswalker(context.bakeLayer(Modelyesmosswalker.LAYER_LOCATION)), 0.5f);
 	}
 
 	@Override

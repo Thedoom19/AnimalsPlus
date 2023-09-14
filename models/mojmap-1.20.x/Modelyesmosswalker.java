@@ -2,16 +2,16 @@
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
-public class Modelmosswalker<T extends Entity> extends EntityModel<T> {
+public class Modelyesmosswalker<T extends Entity> extends EntityModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in
 	// the entity renderer and passed into this model's constructor
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(
-			new ResourceLocation("modid", "mosswalker"), "main");
+			new ResourceLocation("modid", "yesmosswalker"), "main");
 	private final ModelPart rightleg;
 	private final ModelPart head;
 	private final ModelPart leftleg;
 
-	public Modelmosswalker(ModelPart root) {
+	public Modelyesmosswalker(ModelPart root) {
 		this.rightleg = root.getChild("rightleg");
 		this.head = root.getChild("head");
 		this.leftleg = root.getChild("leftleg");
@@ -22,15 +22,18 @@ public class Modelmosswalker<T extends Entity> extends EntityModel<T> {
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
 		PartDefinition rightleg = partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(0, 34)
-				.addBox(-7.0F, -11.0F, -3.0F, 3.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)),
+				.addBox(-7.0F, -13.0F, -3.0F, 3.0F, 13.0F, 3.0F, new CubeDeformation(0.0F)),
 				PartPose.offset(0.0F, 24.0F, 0.0F));
 
 		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0)
 				.addBox(-9.0F, -27.0F, -10.0F, 17.0F, 17.0F, 17.0F, new CubeDeformation(0.0F)),
 				PartPose.offset(0.0F, 24.0F, 0.0F));
 
+		PartDefinition body = head.addOrReplaceChild("body", CubeListBuilder.create().texOffs(-11, -11).addBox(-7.0F,
+				-24.0F, -9.0F, 13.0F, 13.0F, 13.0F, new CubeDeformation(1.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+
 		PartDefinition leftleg = partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(0, 0)
-				.addBox(4.0F, -11.0F, -3.0F, 3.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)),
+				.addBox(4.0F, -13.0F, -3.0F, 3.0F, 13.0F, 3.0F, new CubeDeformation(0.0F)),
 				PartPose.offset(0.0F, 24.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
