@@ -5,7 +5,7 @@
     "mobName": "Mosswalker",
     "mobLabel": "",
     "mobModelName": "Modelmosswalker",
-    "mobModelTexture": "mosswalkertexture1.png",
+    "mobModelTexture": "mosswalkertexture.png",
     "mobModelGlowTexture": "",
     "solidBoundingBox": {
       "fixedValue": false
@@ -95,9 +95,6 @@
     },
     "stepSound": {
       "value": ""
-    },
-    "onInitialSpawn": {
-      "name": "MosswalkerOnInitialEntitySpawn"
     },
     "hasAI": true,
     "aiBase": "(none)",

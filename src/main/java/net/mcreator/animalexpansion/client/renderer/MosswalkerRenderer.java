@@ -15,6 +15,6 @@ public class MosswalkerRenderer extends MobRenderer<MosswalkerEntity, Modelmossw
 
 	@Override
 	public ResourceLocation getTextureLocation(MosswalkerEntity entity) {
-		return new ResourceLocation("animal_expansion:textures/entities/mosswalkertexture1.png");
+		return new ResourceLocation("animal_expansion:textures/entities/mosswalkertexture.png");
 	}
 }

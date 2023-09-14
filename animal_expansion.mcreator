@@ -90,30 +90,6 @@
         ]
       },
       "path": "~/mobs"
-    },
-    {
-      "name": "MosswalkerOnInitialEntitySpawn",
-      "type": "procedure",
-      "sortid": 7,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "mosswalker_on_initial_entity_spawn",
-      "metadata": {
-        "files": [
-          "src/main/java/net/mcreator/animalexpansion/procedures/MosswalkerOnInitialEntitySpawnProcedure.java"
-        ],
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          }
-        ]
-      },
-      "path": "~/mobs"
     }
   ],
   "variable_elements": [],

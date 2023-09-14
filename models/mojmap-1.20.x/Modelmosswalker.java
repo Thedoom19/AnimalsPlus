@@ -22,7 +22,7 @@ public class Modelmosswalker<T extends Entity> extends EntityModel<T> {
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
 		PartDefinition rightleg = partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(0, 34)
-				.addBox(-7.0F, -10.0F, -3.0F, 3.0F, 10.0F, 3.0F, new CubeDeformation(0.0F)),
+				.addBox(-7.0F, -11.0F, -3.0F, 3.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)),
 				PartPose.offset(0.0F, 24.0F, 0.0F));
 
 		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0)
@@ -30,7 +30,7 @@ public class Modelmosswalker<T extends Entity> extends EntityModel<T> {
 				PartPose.offset(0.0F, 24.0F, 0.0F));
 
 		PartDefinition leftleg = partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(0, 0)
-				.addBox(4.0F, -10.0F, -3.0F, 3.0F, 10.0F, 3.0F, new CubeDeformation(0.0F)),
+				.addBox(4.0F, -11.0F, -3.0F, 3.0F, 11.0F, 3.0F, new CubeDeformation(0.0F)),
 				PartPose.offset(0.0F, 24.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
