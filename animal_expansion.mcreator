@@ -3,6 +3,7 @@
     {
       "name": "CookieBlock",
       "type": "block",
+      "sortid": 4,
       "compiles": true,
       "locked_code": false,
       "registry_name": "cookie_block",
@@ -19,6 +20,7 @@
     {
       "name": "Bleeding",
       "type": "potioneffect",
+      "sortid": 5,
       "compiles": true,
       "locked_code": false,
       "registry_name": "bleeding",
@@ -32,6 +34,7 @@
     {
       "name": "ApplyBleeding",
       "type": "procedure",
+      "sortid": 6,
       "compiles": true,
       "locked_code": false,
       "registry_name": "apply_bleeding",
@@ -70,6 +73,47 @@
         ]
       },
       "path": "~/Blocks"
+    },
+    {
+      "name": "Mosswalker",
+      "type": "livingentity",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mosswalker",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/animalexpansion/entity/MosswalkerEntity.java",
+          "src/main/java/net/mcreator/animalexpansion/client/renderer/MosswalkerRenderer.java",
+          "src/main/resources/assets/animal_expansion/models/item/mosswalker_spawn_egg.json",
+          "src/main/resources/data/animal_expansion/forge/biome_modifier/mosswalker_biome_modifier.json"
+        ]
+      },
+      "path": "~/mobs"
+    },
+    {
+      "name": "MosswalkerOnInitialEntitySpawn",
+      "type": "procedure",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mosswalker_on_initial_entity_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/animalexpansion/procedures/MosswalkerOnInitialEntitySpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/mobs"
     }
   ],
   "variable_elements": [],
@@ -77,6 +121,8 @@
   "language_map": {
     "en_us": {
       "block.animal_expansion.cookie_block": "Cookie Block",
+      "item.animal_expansion.mosswalker_spawn_egg": "Mosswalker Spawn Egg",
+      "entity.animal_expansion.mosswalker": "Mosswalker",
       "effect.animal_expansion.bleeding": "Bleeding"
     }
   },

@@ -29,8 +29,10 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.FriendlyByteBuf;
 
+import net.mcreator.animalexpansion.init.AnimalExpansionModTabs;
 import net.mcreator.animalexpansion.init.AnimalExpansionModMobEffects;
 import net.mcreator.animalexpansion.init.AnimalExpansionModItems;
+import net.mcreator.animalexpansion.init.AnimalExpansionModEntities;
 import net.mcreator.animalexpansion.init.AnimalExpansionModBlocks;
 
 import java.util.function.Supplier;
@@ -54,6 +56,9 @@ public class AnimalExpansionMod {
 		AnimalExpansionModBlocks.REGISTRY.register(bus);
 
 		AnimalExpansionModItems.REGISTRY.register(bus);
+		AnimalExpansionModEntities.REGISTRY.register(bus);
+
+		AnimalExpansionModTabs.REGISTRY.register(bus);
 
 		AnimalExpansionModMobEffects.REGISTRY.register(bus);
 

@@ -1,4 +1,6 @@
 {
   "block.animal_expansion.cookie_block": "Cookie Block",
+  "item.animal_expansion.mosswalker_spawn_egg": "Mosswalker Spawn Egg",
+  "entity.animal_expansion.mosswalker": "Mosswalker",
   "effect.animal_expansion.bleeding": "Bleeding"
 }
