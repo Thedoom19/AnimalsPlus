@@ -22,6 +22,10 @@ public class AnimalExpansionModTabs {
 	@SubscribeEvent
 	public static void buildTabContentsVanilla(BuildCreativeModeTabContentsEvent tabData) {
 
+		if (tabData.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+			tabData.accept(AnimalExpansionModBlocks.COOKIE_BLOCK.get().asItem());
+		}
+
 		if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
 			tabData.accept(AnimalExpansionModItems.MOSSWALKER_SPAWN_EGG.get());
 		}

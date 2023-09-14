@@ -10,26 +10,20 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.animal.axolotl.Axolotl;
+import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.ai.goal.RemoveBlockGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.PanicGoal;
-import net.minecraft.world.entity.ai.goal.FollowParentGoal;
-import net.minecraft.world.entity.ai.goal.FollowOwnerGoal;
 import net.minecraft.world.entity.ai.goal.FollowMobGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.EatBlockGoal;
-import net.minecraft.world.entity.ai.goal.BreedGoal;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.TamableAnimal;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.MobType;
@@ -39,8 +33,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.server.level.ServerLevel;
@@ -56,7 +48,7 @@ import javax.annotation.Nullable;
 
 import java.util.List;
 
-public class MosswalkerEntity extends TamableAnimal {
+public class MosswalkerEntity extends Animal {
 	public MosswalkerEntity(PlayMessages.SpawnEntity packet, Level world) {
 		this(AnimalExpansionModEntities.MOSSWALKER.get(), world);
 	}
@@ -86,9 +78,6 @@ public class MosswalkerEntity extends TamableAnimal {
 		this.goalSelector.addGoal(8, new TemptGoal(this, 1, Ingredient.of(Blocks.MOSS_BLOCK.asItem()), false));
 		this.goalSelector.addGoal(9, new TemptGoal(this, 1, Ingredient.of(Blocks.MOSS_CARPET.asItem()), false));
 		this.goalSelector.addGoal(10, new AvoidEntityGoal<>(this, Axolotl.class, (float) 6, 1, 1.2));
-		this.goalSelector.addGoal(11, new FollowParentGoal(this, 0.8));
-		this.goalSelector.addGoal(12, new FollowOwnerGoal(this, 1, (float) 10, (float) 2, false));
-		this.goalSelector.addGoal(13, new BreedGoal(this, 1));
 	}
 
 	@Override
@@ -124,50 +113,6 @@ public class MosswalkerEntity extends TamableAnimal {
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata, @Nullable CompoundTag tag) {
 		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata, tag);
 		MosswalkerOnInitialEntitySpawnProcedure.execute(this.getY(), this);
-		return retval;
-	}
-
-	@Override
-	public InteractionResult mobInteract(Player sourceentity, InteractionHand hand) {
-		ItemStack itemstack = sourceentity.getItemInHand(hand);
-		InteractionResult retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-		Item item = itemstack.getItem();
-		if (itemstack.getItem() instanceof SpawnEggItem) {
-			retval = super.mobInteract(sourceentity, hand);
-		} else if (this.level().isClientSide()) {
-			retval = (this.isTame() && this.isOwnedBy(sourceentity) || this.isFood(itemstack)) ? InteractionResult.sidedSuccess(this.level().isClientSide()) : InteractionResult.PASS;
-		} else {
-			if (this.isTame()) {
-				if (this.isOwnedBy(sourceentity)) {
-					if (item.isEdible() && this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-						this.usePlayerItem(sourceentity, hand, itemstack);
-						this.heal((float) item.getFoodProperties().getNutrition());
-						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-					} else if (this.isFood(itemstack) && this.getHealth() < this.getMaxHealth()) {
-						this.usePlayerItem(sourceentity, hand, itemstack);
-						this.heal(4);
-						retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-					} else {
-						retval = super.mobInteract(sourceentity, hand);
-					}
-				}
-			} else if (this.isFood(itemstack)) {
-				this.usePlayerItem(sourceentity, hand, itemstack);
-				if (this.random.nextInt(3) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, sourceentity)) {
-					this.tame(sourceentity);
-					this.level().broadcastEntityEvent(this, (byte) 7);
-				} else {
-					this.level().broadcastEntityEvent(this, (byte) 6);
-				}
-				this.setPersistenceRequired();
-				retval = InteractionResult.sidedSuccess(this.level().isClientSide());
-			} else {
-				retval = super.mobInteract(sourceentity, hand);
-				if (retval == InteractionResult.SUCCESS || retval == InteractionResult.CONSUME)
-					this.setPersistenceRequired();
-			}
-		}
-		sourceentity.startRiding(this);
 		return retval;
 	}
 

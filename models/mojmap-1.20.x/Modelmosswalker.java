@@ -46,9 +46,7 @@ public class Modelmosswalker<T extends Entity> extends EntityModel<T> {
 
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
 			float headPitch) {
-		this.head.yRot = netHeadYaw / (180F / (float) Math.PI);
-		this.head.xRot = headPitch / (180F / (float) Math.PI);
-		this.rightleg.zRot = Mth.cos(limbSwing * 1.0F) * 1.0F * limbSwingAmount;
-		this.leftleg.zRot = Mth.cos(limbSwing * 1.0F) * -1.0F * limbSwingAmount;
+		this.rightleg.xRot = Mth.cos(limbSwing * 1.0F) * 1.0F * limbSwingAmount;
+		this.leftleg.xRot = Mth.cos(limbSwing * 1.0F) * -1.0F * limbSwingAmount;
 	}
 }

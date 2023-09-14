@@ -3,7 +3,7 @@
   "biomes": "lush_caves",
   "spawners": {
     "type": "animal_expansion:mosswalker",
-    "weight": 8,
+    "weight": 12,
     "minCount": 2,
     "maxCount": 6
   }

@@ -6,7 +6,7 @@ public class MosswalkerOnInitialEntitySpawnProcedure {
 	public static void execute(double y, Entity entity) {
 		if (entity == null)
 			return;
-		if (y > 50) {
+		if (y > 80) {
 			if (!entity.level().isClientSide())
 				entity.discard();
 		}
